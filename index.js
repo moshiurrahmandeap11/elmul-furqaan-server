@@ -5,6 +5,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 import createLogoRoutes from "./routes/logo.js";
 import createBannerRoutes from "./routes/banner.js";
 import createBlogsRoutes from "./routes/blogs.js";
+import createVideoRoutes from "./routes/videos.js";
 
 
 
@@ -46,11 +47,13 @@ async function run() {
     const logoRoutes = (await import("./routes/logo.js")).default;
     const bannerRoutes = (await import("./routes/banner.js")).default;
     const blogsRoutes = (await import("./routes/blogs.js")).default;
+    const videosRoutes = (await import("./routes/videos.js")).default;
 
     
     app.use("/api/logo", createLogoRoutes(db));
     app.use("/api/banner", createBannerRoutes(db));
     app.use("/api/blogs", createBlogsRoutes(db));
+    app.use("/api/videos", createVideoRoutes(db));
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
   }
