@@ -8,6 +8,7 @@ import createBlogsRoutes from "./routes/blogs.js";
 import createVideoRoutes from "./routes/videos.js";
 import createAboutRoutes from "./routes/about.js";
 import createqnaRoutes from "./routes/qna.js";
+import createcontactRoutes from "./routes/contact.js";
 
 
 
@@ -52,6 +53,7 @@ async function run() {
     const videosRoutes = (await import("./routes/videos.js")).default;
     const aboutRoutes = (await import("./routes/about.js")).default;
     const qnaRoutes = (await import("./routes/qna.js")).default;
+    const contactRoutes = (await import("./routes/contact.js")).default;
 
     
     app.use("/api/logo", createLogoRoutes(db));
@@ -60,6 +62,7 @@ async function run() {
     app.use("/api/videos", createVideoRoutes(db));
     app.use("/api/about", createAboutRoutes(db));
     app.use("/api/qna", createqnaRoutes(db));
+    app.use("/api/contact", createcontactRoutes(db))
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
   }
