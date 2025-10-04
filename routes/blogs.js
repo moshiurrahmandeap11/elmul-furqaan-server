@@ -7,7 +7,7 @@ export default function createBlogsRoutes(db) {
   const blogsCollection = db.collection("blogs");
 
   // =====================
-  // 📥 GET all blogs
+  //  GET all blogs
   // =====================
   router.get("/", async (req, res) => {
     try {
@@ -20,7 +20,7 @@ export default function createBlogsRoutes(db) {
   });
 
   // =====================
-  // 📥 GET single blog by ID
+  //  GET single blog by ID
   // =====================
   router.get("/:id", async (req, res) => {
     try {
@@ -36,7 +36,7 @@ export default function createBlogsRoutes(db) {
   });
 
   // =====================
-  // ➕ POST create new blog
+  //  POST create new blog
   // =====================
   router.post("/", async (req, res) => {
     try {
@@ -51,7 +51,7 @@ export default function createBlogsRoutes(db) {
   });
 
   // =====================
-  // ✏️ PUT update blog by ID
+  //  PUT update blog by ID
   // =====================
   router.put("/:id", async (req, res) => {
     try {
@@ -70,7 +70,7 @@ export default function createBlogsRoutes(db) {
   });
 
   // =====================
-  // ❌ DELETE blog by ID
+  //  DELETE blog by ID
   // =====================
   router.delete("/:id", async (req, res) => {
     try {

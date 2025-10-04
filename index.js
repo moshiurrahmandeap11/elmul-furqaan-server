@@ -71,10 +71,10 @@ run().catch(console.dir);
 
 // 🔹 Basic Route
 app.get("/", (req, res) => {
-  res.send("🚀 Express + MongoDB Server Running...");
+  res.send(" Express + MongoDB Server Running...");
 });
 
 // 🔹 Start Server
 app.listen(PORT, () => {
-  console.log(`⚡ Server running at: http://localhost:${PORT}`);
+  console.log(` Server running at: http://localhost:${PORT}`);
 });

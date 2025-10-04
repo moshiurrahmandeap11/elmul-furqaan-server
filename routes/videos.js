@@ -6,7 +6,7 @@ const router = express.Router();
 export default function createVideoRoutes(db) {
   const videoCollection = db.collection("video");
 
-  // 📥 Get all videos
+  //  Get all videos
   router.get("/", async (req, res) => {
     try {
       const videos = await videoCollection.find().sort({ createdAt: -1 }).toArray();
@@ -17,7 +17,7 @@ export default function createVideoRoutes(db) {
     }
   });
 
-  // ➕ Add new video
+  //  Add new video
   router.post("/", async (req, res) => {
     try {
       const { title, description, thumbnail, videoUrl, tags } = req.body;
@@ -44,7 +44,7 @@ export default function createVideoRoutes(db) {
     }
   });
 
-  // ✏️ Update video by ID
+  //  Update video by ID
   router.put("/:id", async (req, res) => {
     try {
       const videoId = req.params.id;
@@ -75,7 +75,7 @@ export default function createVideoRoutes(db) {
     }
   });
 
-  // 📥 Get single video by ID (for details/edit)
+  //  Get single video by ID (for details/edit)
   router.get("/:id", async (req, res) => {
     try {
       const videoId = req.params.id;
@@ -92,7 +92,7 @@ export default function createVideoRoutes(db) {
     }
   });
 
-  // ❌ Delete video by ID
+  //  Delete video by ID
   router.delete("/:id", async (req, res) => {
     try {
       const videoId = req.params.id;

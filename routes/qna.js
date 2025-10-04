@@ -6,7 +6,7 @@ const router = express.Router();
 export default function createqnaRoutes(db) {
   const qnaCollection = db.collection("qna");
 
-  // 📥 Get all Q&A (sorted by createdAt descending)
+  //  Get all Q&A (sorted by createdAt descending)
   router.get("/", async (req, res) => {
     try {
       const qnas = await qnaCollection.find().sort({ createdAt: -1 }).toArray();
@@ -17,7 +17,7 @@ export default function createqnaRoutes(db) {
     }
   });
 
-  // ➕ Add new Q&A (user submits question, admin adds answer later)
+  //  Add new Q&A (user submits question, admin adds answer later)
   router.post("/", async (req, res) => {
     try {
       const { question, userName, userEmail, userIp } = req.body; // Optional user info
@@ -45,7 +45,7 @@ export default function createqnaRoutes(db) {
     }
   });
 
-  // ✏️ Update Q&A (admin replies/updates answer)
+  //  Update Q&A (admin replies/updates answer)
   router.put("/:id", async (req, res) => {
     try {
       const qnaId = req.params.id;
@@ -79,7 +79,7 @@ export default function createqnaRoutes(db) {
     }
   });
 
-  // ❌ Delete Q&A by ID
+  //  Delete Q&A by ID
   router.delete("/:id", async (req, res) => {
     try {
       const qnaId = req.params.id;
@@ -96,7 +96,7 @@ export default function createqnaRoutes(db) {
     }
   });
 
-  // 📥 Get single Q&A by ID (for edit/view)
+  //  Get single Q&A by ID (for edit/view)
   router.get("/:id", async (req, res) => {
     try {
       const qnaId = req.params.id;

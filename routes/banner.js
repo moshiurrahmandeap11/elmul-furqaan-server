@@ -6,7 +6,7 @@ const router = express.Router();
 export default function createBannerRoutes(db) {
   const bannerCollection = db.collection("banner");
 
-  // 📥 Get all banners (includes image and text fields)
+  //  Get all banners (includes image and text fields)
   router.get("/", async (req, res) => {
     try {
       const banners = await bannerCollection.find().toArray();
@@ -36,7 +36,7 @@ export default function createBannerRoutes(db) {
     }
   });
 
-  // ✏️ Update banner text by ID
+  //  Update banner text by ID
   router.put("/:id", async (req, res) => {
     try {
       const bannerId = req.params.id;
@@ -65,7 +65,7 @@ export default function createBannerRoutes(db) {
     }
   });
 
-  // ❌ Delete banner by ID
+  //  Delete banner by ID
   router.delete("/:id", async (req, res) => {
     try {
       const result = await bannerCollection.deleteOne({
