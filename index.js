@@ -64,7 +64,7 @@ async function run() {
     app.use("/api/about", createAboutRoutes(db));
     app.use("/api/qna", createqnaRoutes(db));
     app.use("/api/contact", createcontactRoutes(db))
-    app.use("/api/search")
+    app.use("/api/search", createSearchRoutes(db))
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
   }
