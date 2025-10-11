@@ -54,6 +54,7 @@ async function run() {
     const aboutRoutes = (await import("./routes/about.js")).default;
     const qnaRoutes = (await import("./routes/qna.js")).default;
     const contactRoutes = (await import("./routes/contact.js")).default;
+    const createSearchRoutes = (await import("./routes/search.js")).default;
 
     
     app.use("/api/logo", createLogoRoutes(db));
@@ -63,6 +64,7 @@ async function run() {
     app.use("/api/about", createAboutRoutes(db));
     app.use("/api/qna", createqnaRoutes(db));
     app.use("/api/contact", createcontactRoutes(db))
+    app.use("/api/search")
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
   }
